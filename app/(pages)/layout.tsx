@@ -10,6 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} bg-black text-white`}>
         <Navbar />
         {children}
+        <div className="mt-44"/>
         <Footer />
       </body>
     </html>

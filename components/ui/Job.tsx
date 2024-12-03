@@ -6,7 +6,7 @@ export default async function Job() {
   const job: JobType[] = await getJob();
 
   return (
-    <section className="mt-32">
+    <section className="mt-32 mb-44">
       <div className="mb-16">
         <h2 className="font-semibold text-4xl mb-4">Work <span className="text-blue-500">Experience</span></h2>
       </div>
