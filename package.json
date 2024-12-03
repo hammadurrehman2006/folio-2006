@@ -11,8 +11,6 @@
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
-    "@react-three/drei": "^9.119.0",
-    "@react-three/fiber": "^8.17.10",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.65.1",
     "class-variance-authority": "^0.7.1",
