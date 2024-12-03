@@ -59,7 +59,7 @@ export default async function About() {
             <section className="mt-24 max-w-2xl">
               <h2 className="font-semibold text-4xl mb-4">Expertise</h2>
               <p className="text-zinc-400 max-w-lg">
-                Through years of continuous learning, I've cultivated expertise in:
+                Through years of continuous learning, I&apos;ve cultivated expertise in:
               </p>
 
               <ul className="flex flex-wrap items-center gap-3 mt-8">
