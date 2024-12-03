@@ -15,6 +15,10 @@ export function TypeText({ data }: TypeTextProps) {
 
   // Map words with styles
   const words: Word[] = data.split(" ").map((word, index) => {
+//if the word is "Designer," then add line break
+if (word === "Developer,") {
+  return { text: word, className: "line-break text-white" };
+  }
     const isHighlighted =
       highlightWords.includes(word) || index === data.split(" ").length - 1;
     return {
