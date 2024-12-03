@@ -4,11 +4,13 @@ import Footer from "../components/global/Footer";
 export default function Home() {
   return (
     <>
+    <div className="bg-black text-white">
       <Navbar />
       <main>
         <Hero />
       </main>
       <Footer />
+      </div>
     </>
   );
 }
