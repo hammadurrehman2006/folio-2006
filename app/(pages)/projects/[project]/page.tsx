@@ -6,26 +6,27 @@ import { PortableText } from "@portabletext/react";
 import fallBackImage from "@/public/project.png";
 
 type Props = {
-  params: {
-    project: string;
+    params: {
+      project: string;
+    };
   };
-};
-
-// Dynamic metadata for SEO
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.project;
-  const project: ProjectType = await getSingleProject(slug);
-
-  return {
-    title: `${project.name} | Project`,
-    description: project.tagline,
-    openGraph: {
-      images: project.coverImage?.image || "add-a-fallback-project-image-here",
-      title: project.name,
+  
+  // Dynamic metadata for SEO
+  export async function generateMetadata({ params }: { params: { project: string } }): Promise<Metadata> {
+    const slug = params.project;
+    const project: ProjectType = await getSingleProject(slug);
+  
+    return {
+      title: `${project.name} | Project`,
       description: project.tagline,
-    },
-  };
-}
+      openGraph: {
+        images: project.coverImage?.image || "add-a-fallback-project-image-here",
+        title: project.name,
+        description: project.tagline,
+      },
+    };
+  }
+  
 
 export default async function DynaProject({ params }: Props) {
   const slug = params.project;
