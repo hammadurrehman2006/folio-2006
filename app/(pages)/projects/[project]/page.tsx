@@ -10,9 +10,14 @@ type Props = {
       project: string;
     };
   };
+  interface MyPageProps {
+    params: {
+      project: string;
+    };
+  }
   
-  // Dynamic metadata for SEO
-  export async function generateMetadata({ params }: { params: { project: string } }): Promise<Metadata> {
+  export async function generateMetadata(props: MyPageProps): Promise<Metadata> {
+    const { params } = props;
     const slug = params.project;
     const project: ProjectType = await getSingleProject(slug);
   
@@ -26,7 +31,7 @@ type Props = {
       },
     };
   }
-  
+    
 
 export default async function DynaProject({ params }: Props) {
   const slug = params.project;
