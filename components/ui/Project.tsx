@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
 
-export default async function Project() {
+export default async function ProjectP() {
   const projects: ProjectType[] = await getProjects();
 
   return (

@@ -5,14 +5,13 @@ import type { ProjectType } from "@/types";
 import { PortableText } from "@portabletext/react";
 import fallBackImage from "@/public/project.png";
 
-type Props = {
+type Params = {
   params: {
     project: string;
   };
 };
 
-// Dynamic metadata for SEO
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
@@ -20,14 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${project.name} | Project`,
     description: project.tagline,
     openGraph: {
-      images: project.coverImage?.image || "add-a-fallback-project-image-here",
+      images: project.coverImage?.image || "/project.png",
       title: project.name,
       description: project.tagline,
     },
   };
 }
 
-export default async function Project({ params }: Props) {
+export default async function Project({ params }: Params) {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
