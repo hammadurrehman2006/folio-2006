@@ -6,39 +6,33 @@ import { PortableText } from "@portabletext/react";
 import fallBackImage from "@/public/project.png";
 
 type Props = {
-    params: {
-      project: string;
-    };
+  params: {
+    project: string;
   };
-  interface MyPageProps {
-    params: {
-      project: string;
-    };
-  }
-  
-  export async function generateMetadata(props: MyPageProps): Promise<Metadata> {
-    const { params } = props;
-    const slug = params.project;
-    const project: ProjectType = await getSingleProject(slug);
-  
-    return {
-      title: `${project.name} | Project`,
-      description: project.tagline,
-      openGraph: {
-        images: project.coverImage?.image || "add-a-fallback-project-image-here",
-        title: project.name,
-        description: project.tagline,
-      },
-    };
-  }
-    
+};
 
-export default async function DynaProject({ params }: Props) {
+// Dynamic metadata for SEO
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.project;
+  const project: ProjectType = await getSingleProject(slug);
+
+  return {
+    title: `${project.name} | Project`,
+    description: project.tagline,
+    openGraph: {
+      images: project.coverImage?.image || "add-a-fallback-project-image-here",
+      title: project.name,
+      description: project.tagline,
+    },
+  };
+}
+
+export default async function Project({ params }: Props) {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
   return (
-    <main className="max-w-6xl mx-auto lg:px-16 px-8 mb-44">
+    <main className="max-w-6xl mx-auto lg:px-16 px-8">
       <div className="max-w-3xl mx-auto">
         <div className="flex items-start justify-between mb-4">
           <h1 className="font-bold lg:text-5xl text-3xl lg:leading-tight mb-4">
