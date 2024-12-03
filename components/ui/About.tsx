@@ -14,8 +14,8 @@ export default async function About() {
           <div key={data._id}>
             <section className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 justify-items-center">
               <div className="order-2 lg:order-none">
-                <div className="lg:text-5xl min-h-80 text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
-                  <TypeText data={`I'm ${data.fullName}, crafting innovation and redefining possibilities from ${data.location}`} />
+                <div className="lg:text-5xl h-auto text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
+                  <TypeText data={`I am ${data.fullName}, crafting innovation and redefining possibilities from ${data.location}`} />
                 </div>
 
                 <div className="flex flex-col gap-y-3 text-zinc-400 leading-relaxed">
