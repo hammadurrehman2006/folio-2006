@@ -9,12 +9,12 @@ export type PageProps = {
   params: {
     project: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams?: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({ 
   params 
-}: PageProps): Promise<Metadata> {
+}: { params: { project: string } }): Promise<Metadata> {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
@@ -31,7 +31,7 @@ export async function generateMetadata({
 
 export default async function Project({ 
   params 
-}: PageProps) {
+}: { params: { project: string } }) {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
   return (
