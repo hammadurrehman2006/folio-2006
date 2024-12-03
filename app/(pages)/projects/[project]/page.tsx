@@ -5,13 +5,16 @@ import type { ProjectType } from "@/types";
 import { PortableText } from "@portabletext/react";
 import fallBackImage from "@/public/project.png";
 
-type Params = {
+export type PageProps = {
   params: {
     project: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({ 
+  params 
+}: PageProps): Promise<Metadata> {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
 
@@ -26,10 +29,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-export default async function Project({ params }: Params) {
+export default async function Project({ 
+  params 
+}: PageProps) {
   const slug = params.project;
   const project: ProjectType = await getSingleProject(slug);
-
   return (
     <main className="max-w-6xl mx-auto lg:px-16 px-8">
       <div className="max-w-3xl mx-auto">
