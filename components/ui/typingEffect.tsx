@@ -1,21 +1,32 @@
 'use client';
 import { TypewriterEffect } from "./typewriter";
 
-export function TypeText({ data }: any) {
-  // Define the specific words to be highlighted in blue
+interface Word {
+  text: string;
+  className: string;
+}
+
+interface TypeTextProps {
+  data: string;
+}
+
+export function TypeText({ data }: TypeTextProps) {
   const highlightWords = ["Muhammad", "Hammad", "ur", "Rehman,", "Karachi,", "Pakistan"];
 
-  // Split the text into words
-  const words = data.split(" ").map((word: any, index: any) => {
-    const isHighlighted = highlightWords.includes(word) || index === data.split(" ").length - 1; // Check if it's a highlighted word or the last word
+  // Map words with styles
+  const words: Word[] = data.split(" ").map((word, index) => {
+    const isHighlighted =
+      highlightWords.includes(word) || index === data.split(" ").length - 1;
     return {
       text: word,
-      className: isHighlighted ? "text-blue-500 dark:text-blue-500" : "text-white", // Apply blue class to highlighted words or the last word
+      className: isHighlighted
+        ? "text-blue-500 dark:text-blue-500"
+        : "text-white",
     };
   });
 
   return (
-    <div className="flex flex-wrap text-left justify-start gap-2 h-auto">
+    <div className="flex flex-wrap text-left justify-start gap-2 min-h-24 h-auto">
       <TypewriterEffect words={words} />
     </div>
   );
